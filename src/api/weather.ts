@@ -1,4 +1,4 @@
-import { error } from "console";
+
 import { API_CONFIG } from "./config";
 import { Coordinates, WeatherData, ForecastData, GeocodingResponse } from "./types";
 
@@ -11,7 +11,7 @@ class WeatherAPI{
         return `${endpoint}?${searchParams.toString()}`;
     }
 
-    private fetchData<T>(url: string): Promise<T> {
+    private async fetchData<T>(url: string): Promise<T> {
         const response = await fetch(url);
 
         if(!response.ok){
